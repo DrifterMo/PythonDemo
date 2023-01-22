@@ -14,18 +14,20 @@
     排序后的三列数据
 """
 
+
 def read_file(path):
     file_data = []
-    with open(path, 'r',encoding='utf8') as stream:
+    with open(path, 'r', encoding='utf8') as stream:
         for data in stream:
             data = data[:-1]
             file_data.append(data.split(','))
     return file_data
 
+
 def sorted_data(data):
-
-
+    return sorted(data, key=lambda x: x[2])
 
 
 path = r'./012_readFile'
-print(read_file(path))
+# print(read_file(path))
+print(sorted_data(read_file(path)))
