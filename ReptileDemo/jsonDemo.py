@@ -1,18 +1,20 @@
-fp = open('text.txt', 'w')
-# 默认情况 我们只能将字符串写到文件中
-fp.write('hello world')
-fp.close()
+# fp = open('text.txt', 'w')
+# # 默认情况 我们只能将字符串写到文件中
+# fp.write('hello world')
+# fp.close()
+#
+# fp = open('text.txt', 'w')
+# """
+# TypeError: write() argument must be str, not list
+# 默认状态下对象是无法写入到文件中  如果想要写入文件，那么必须要使用序列化
+# """
+# name_list = ['zhangsan', 'lisi']
+# fp.write(name_list)
 
-fp = open('text.txt', 'w')
 """
-TypeError: write() argument must be str, not list
-默认状态下对象是无法写入到文件中  如果想要写入文件，那么必须要使用序列化
-"""
-name_list = ['zhangsan', 'lisi']
-fp.write(name_list)
-
 # 序列化的2中方式
 # dumps()
+"""
 # (1) 创建一个文件
 fp = open('text.txt', 'w')
 
@@ -22,9 +24,11 @@ name_list = ['zs', 'ls']
 # 导入JSON模块到该文件中
 import json
 
+"""
 # 序列化
 # 将python对象 变成 JSON字符串
 # 我们在使用scrapy框架的时候 该框架会返回一个对象  我们要将对象写入文件中 就要使用json.dumps
+"""
 
 names = json.dumps(name_list)
 # print(names)    # ["zs", "ls"]
@@ -45,6 +49,9 @@ import json
 json.dump(name_list, fp)
 
 fp.close()
+
+
+
 
 # 反序列优化
 # 将JSON的字符串变成一个python对象
